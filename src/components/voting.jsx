@@ -1,6 +1,7 @@
 import config from "../config/voting.json";
 import widgetConfig from "../config/widgetSource.json";
 import '../css/voting.css'
+import { Component } from "react";
 
 function importAll(r) {
   let images = {};
@@ -10,12 +11,11 @@ function importAll(r) {
   return images;
 }
 
-export const Voting = () => {
-  const images = importAll(
-    require.context("../assets/images", false, /\.(png|jpe?g|svg)$/)
-  );
-  const iframeSource = '<iframe src="https://prokarma.crowdtwist.com/widgets/t/activity-list/16912"></iframe>';
-
+class Voting extends Component  {
+    componentDidMount(){
+    window.CrowdTwist.loadWidgets();
+  } 
+  render(){
   return (
     <div>
       <div className="flex flex-col justify-start items-start gap-[22px]">
@@ -83,166 +83,12 @@ export const Voting = () => {
             </p>
           </div>
           <div className="flex justify-start items-start flex-grow-0 flex-shrink-0 w-[1000px] gap-6">
-            <div className="flex flex-col justify-start items-start self-stretch flex-grow overflow-hidden gap-2 rounded bg-white">
-              <div
-                className={`flex flex-col justify-start items-start self-stretch flex-grow-0 flex-shrink-0 overflow-hidden bg-[url(${images["vote1.png"]})] bg-cover bg-no-repeat bg-center`}
-              >
-                <div className="flex flex-col justify-start items-start self-stretch flex-grow-0 flex-shrink-0 overflow-hidden">
-                  <div className="flex justify-start items-start self-stretch flex-grow-0 flex-shrink-0 h-[232px]">
-                    <div className="flex justify-start items-center self-stretch flex-grow-0 flex-shrink-0 w-0 h-[232px]" />
-                  </div>
-                </div>
-              </div>
-              <div className="flex flex-col justify-start items-start self-stretch flex-grow-0 flex-shrink-0 gap-2 px-2 pt-1 pb-2">
-                <div className="flex flex-col justify-start items-start self-stretch flex-grow-0 flex-shrink-0 relative gap-2">
-                  <div className="flex flex-col justify-start items-start self-stretch flex-grow-0 flex-shrink-0 relative gap-4">
-                    <p className="self-stretch flex-grow-0 flex-shrink-0 w-[216px] text-xl text-left uppercase text-black">
-                      Player of the month
-                    </p>
-                  </div>
-                  <svg
-                    width={17}
-                    height={16}
-                    viewBox="0 0 17 16"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                    className="flex-grow-0 flex-shrink-0 w-4 h-4 relative"
-                    preserveAspectRatio="xMidYMid meet"
-                  >
-                    <circle cx="8.5" cy="8.00064" r={8} fill="#34C759" />
-                    <path
-                      d="M3.70001 7.94639L7.12388 11.2006L12.9445 4.80063"
-                      stroke="black"
-                      strokeWidth="1.5"
-                    />
-                  </svg>
-                </div>
-              </div>
-            </div>
-            <div className="flex flex-col justify-start items-start self-stretch flex-grow overflow-hidden gap-2 rounded bg-white">
-              <div
-                className={`flex flex-col justify-start items-start self-stretch flex-grow-0 flex-shrink-0 overflow-hidden bg-[url(${images["image-container-+-elements-5.png"]})] bg-cover bg-no-repeat bg-center`}
-              >
-                <div className="flex flex-col justify-start items-start self-stretch flex-grow-0 flex-shrink-0 overflow-hidden">
-                  <div className="flex justify-start items-start self-stretch flex-grow-0 flex-shrink-0 h-[232px]">
-                    <div className="flex justify-start items-center self-stretch flex-grow-0 flex-shrink-0 w-0 h-[232px]" />
-                  </div>
-                </div>
-              </div>
-              <div className="flex flex-col justify-start items-start self-stretch flex-grow-0 flex-shrink-0 gap-2 px-2 pt-1 pb-2">
-                <div className="flex flex-col justify-start items-start self-stretch flex-grow-0 flex-shrink-0 gap-1">
-                  <div className="flex flex-col justify-start items-start self-stretch flex-grow-0 flex-shrink-0 relative gap-4">
-                    <p className="self-stretch flex-grow-0 flex-shrink-0 w-[216px] text-xl text-left uppercase text-black">
-                      submit questions for post-game presser
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="flex flex-col justify-start items-start self-stretch flex-grow overflow-hidden gap-2 rounded bg-white">
-              <div
-                className={`flex flex-col justify-start items-start self-stretch flex-grow-0 flex-shrink-0 overflow-hidden bg-[url(${images["image-container-+-elements-2.png"]})] bg-cover bg-no-repeat bg-center`}
-              >
-                <div className="flex flex-col justify-start items-start self-stretch flex-grow-0 flex-shrink-0 overflow-hidden">
-                  <div className="flex justify-start items-start self-stretch flex-grow-0 flex-shrink-0 h-[232px]">
-                    <div className="flex justify-start items-center self-stretch flex-grow-0 flex-shrink-0 w-0 h-[232px]" />
-                  </div>
-                </div>
-              </div>
-              <div className="flex flex-col justify-start items-start self-stretch flex-grow-0 flex-shrink-0 gap-2 px-2 pt-1 pb-2">
-                <div className="flex flex-col justify-start items-start self-stretch flex-grow-0 flex-shrink-0 gap-1">
-                  <div className="flex flex-col justify-start items-start self-stretch flex-grow-0 flex-shrink-0 relative gap-4">
-                    <p className="self-stretch flex-grow-0 flex-shrink-0 w-[216px] text-xl text-left uppercase text-black">
-                      SOCIAL JUSTICE
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="flex flex-col justify-start items-start self-stretch flex-grow overflow-hidden gap-2 rounded bg-white">
-              <div
-                className={`flex flex-col justify-start items-start self-stretch flex-grow-0 flex-shrink-0 overflow-hidden bg-[url(${images["image-container-+-elements-3.png"]})] bg-cover bg-no-repeat bg-center`}
-              >
-                <div className="flex flex-col justify-start items-start self-stretch flex-grow-0 flex-shrink-0 overflow-hidden">
-                  <div className="flex justify-start items-start self-stretch flex-grow-0 flex-shrink-0 h-[232px]">
-                    <div className="flex justify-start items-center self-stretch flex-grow-0 flex-shrink-0 w-0 h-[232px]" />
-                  </div>
-                </div>
-              </div>
-              <div className="flex flex-col justify-start items-start self-stretch flex-grow-0 flex-shrink-0 gap-2 px-2 pt-1 pb-2">
-                <div className="flex flex-col justify-start items-start self-stretch flex-grow-0 flex-shrink-0 relative gap-2">
-                  <div className="flex flex-col justify-start items-start self-stretch flex-grow-0 flex-shrink-0 relative gap-4">
-                    <p className="self-stretch flex-grow-0 flex-shrink-0 w-[216px] text-xl text-left uppercase text-black">
-                      NBA-Con Event{" "}
-                    </p>
-                  </div>
-                  <svg
-                    width={17}
-                    height={16}
-                    viewBox="0 0 17 16"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                    className="flex-grow-0 flex-shrink-0 w-4 h-4 relative"
-                    preserveAspectRatio="xMidYMid meet"
-                  >
-                    <circle cx="8.5" cy="8.00064" r={8} fill="#34C759" />
-                    <path
-                      d="M3.69995 7.94639L7.12382 11.2006L12.9444 4.80063"
-                      stroke="black"
-                      strokeWidth="1.5"
-                    />
-                  </svg>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="flex justify-start items-start flex-grow-0 flex-shrink-0 w-[1000px] gap-6">
-            <div className="flex flex-col justify-start items-start self-stretch flex-grow overflow-hidden gap-2 rounded bg-white">
-              <div
-                className={`flex flex-col justify-start items-start self-stretch flex-grow-0 flex-shrink-0 overflow-hidden bg-[url(${images["image-container-+-elements-6.png"]})] bg-cover bg-no-repeat bg-center`}
-              >
-                <div className="flex flex-col justify-start items-start self-stretch flex-grow-0 flex-shrink-0 overflow-hidden">
-                  <div className="flex justify-start items-start self-stretch flex-grow-0 flex-shrink-0 h-[232px]">
-                    <div className="flex justify-start items-center self-stretch flex-grow-0 flex-shrink-0 w-0 h-[232px]" />
-                  </div>
-                </div>
-              </div>
-              <div className="flex flex-col justify-start items-start self-stretch flex-grow-0 flex-shrink-0 gap-2 px-2 pt-1 pb-2">
-                <div className="flex flex-col justify-start items-start self-stretch flex-grow-0 flex-shrink-0 gap-1">
-                  <div className="flex flex-col justify-start items-start self-stretch flex-grow-0 flex-shrink-0 relative gap-4">
-                    <p className="self-stretch flex-grow-0 flex-shrink-0 w-[216px] text-xl text-left uppercase text-black">
-                      ALL-STAR EVENT{" "}
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="flex flex-col justify-start items-start self-stretch flex-grow overflow-hidden gap-2 rounded bg-white">
-              <div
-                className={`flex flex-col justify-start items-start self-stretch flex-grow-0 flex-shrink-0 overflow-hidden bg-[url(${images["image-container-+-elements-4.png"]})] bg-cover bg-no-repeat bg-center`}
-              >
-                <div className="flex flex-col justify-start items-start self-stretch flex-grow-0 flex-shrink-0 overflow-hidden">
-                  <div className="flex justify-start items-start self-stretch flex-grow-0 flex-shrink-0 h-[232px]">
-                    <div className="flex justify-start items-center self-stretch flex-grow-0 flex-shrink-0 w-0 h-[232px]" />
-                  </div>
-                </div>
-              </div>
-              <div className="flex flex-col justify-start items-start self-stretch flex-grow-0 flex-shrink-0 gap-2 px-2 pt-1 pb-2">
-                <div className="flex flex-col justify-start items-start self-stretch flex-grow-0 flex-shrink-0 gap-1">
-                  <div className="flex flex-col justify-start items-start self-stretch flex-grow-0 flex-shrink-0 relative gap-4">
-                    <p className="self-stretch flex-grow-0 flex-shrink-0 w-[216px] text-xl text-left uppercase text-black">
-                      All-star CROSSOVER EVENT{" "}
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="flex flex-col justify-start items-start self-stretch flex-grow overflow-hidden gap-2 rounded" />
-            <div className="flex flex-col justify-start items-start self-stretch flex-grow overflow-hidden gap-2 rounded" />
+            <div className="ct-widget" id="div" data-widget-id="18242"  data-src={"https://prokarma.crowdtwist.com/widgets/t/activity-list/18242"}></div>
           </div>
         </div>
       </div>
     </div>
   );
 };
+}
 export default Voting;
